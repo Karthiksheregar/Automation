@@ -9,12 +9,22 @@ public class OpenBrowser {
 		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.google.com/");
 		
 		driver.get("https://www.facebook.com/");
+		
+		driver.navigate().back();
+		
+		Thread.sleep(2000);
+		
+		driver.navigate().forward();
+		
+		Thread.sleep(2000);
+		
+		driver.navigate().refresh();
 		
 		driver.close();
 		
